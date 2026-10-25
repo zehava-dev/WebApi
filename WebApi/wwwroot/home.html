@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="java.js" defer></script>
+</head>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap:200px;
+    }
+    .sign {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: baseline;
+        gap: 10px;
+    }
+    .conected {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: baseline;
+        gap: 10px;
+    }
+</style>
+<body>
+
+    <div class="sign">
+        <label for="name">שם</label>
+        <input type="text" id="name" />
+
+        <label for="lastName">שם משפחה</label>
+        <input type="text" id="lastName" />
+
+        <label for="email">מייל</label>
+        <input type="email" id="email" />
+
+        <label for="password">סיסמא</label>
+        <input type="password" id="password" />
+
+        <button onclick="postData()">set</button>
+    </div>
+
+    <div class="conected">
+        <label for="email2">מייל</label>
+        <input type="email" id="email2" />
+
+        <label for="password2">סיסמא</label>
+        <input type="password" id="password2" />
+        <button onclick="getUser()">login</button>
+    </div>
+
+    
+
+
+</body>
+</html>
