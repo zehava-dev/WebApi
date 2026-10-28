@@ -2,6 +2,9 @@
 
 namespace WebApi.Controllers
 {
+    //In C#, public properties are written in PascalCase (Name, LastName, Email, Password, Id).
+    //If you rename them, users.txt still has the old names, so read it with
+    //new JsonSerializerOptions { PropertyNameCaseInsensitive = true }
     public class User
     {
         [Required]

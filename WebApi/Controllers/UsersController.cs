@@ -9,7 +9,8 @@ namespace WebApi.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
-        static string filePath = "users.txt";
+        //fix: The path never changes, so it can be readonly
+        static readonly string filePath = "users.txt";
 
         // GET: api/<UsersController>
         [HttpGet]
@@ -20,6 +21,7 @@ namespace WebApi.Controllers
 
         // GET api/<UsersController>/5
         [HttpGet("{id}")]
+        //Why isn't it implemented? It should read the file and return the user with this id (or NotFound / NoContent)
         public string Get(int id)
         {
             return "value";
@@ -60,6 +62,7 @@ namespace WebApi.Controllers
 
         // PUT api/<UsersController>/5
         [HttpPut("{id}")]
+        //The assignment asks PUT to return Ok(): change void to IActionResult and return Ok() at the end
         public void Put(int id ,[FromBody] User userToUpdate)
         {
             string textToReplace = string.Empty;
@@ -72,11 +75,17 @@ namespace WebApi.Controllers
                     User user =
                     JsonSerializer.Deserialize<User>(currentUserInFile);
                     if (user.id == id)
+                    {
                         textToReplace = currentUserInFile;
+                        //fix: Found- break
+                        break;
+                    }
                 }
             }
             if(textToReplace != string.Empty)
 {
+                //fix: Keep the id, otherwise the updated user is saved without it
+                userToUpdate.id = id;
                 string text = System.IO.File.ReadAllText(filePath);
                 text = text.Replace(textToReplace,
                 JsonSerializer.Serialize(userToUpdate));
