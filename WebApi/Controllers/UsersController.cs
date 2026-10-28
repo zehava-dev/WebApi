@@ -14,7 +14,6 @@ namespace WebApi.Controllers
 
         // GET: api/<UsersController>
         [HttpGet]
-        //These names are fixed in the code. A GET on api/Users is expected to return the users from the file
         public IEnumerable<string> Get()
         {
             return new string[] { "Zehavi", "Rivka" };
