@@ -62,6 +62,7 @@ namespace WebApi.Controllers
 
         // PUT api/<UsersController>/5
         [HttpPut("{id}")]
+        //The assignment asks PUT to return Ok(): change void to IActionResult and return Ok() at the end
         public void Put(int id ,[FromBody] User userToUpdate)
         {
             string textToReplace = string.Empty;
