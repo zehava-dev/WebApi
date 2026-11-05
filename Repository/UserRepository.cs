@@ -11,14 +11,14 @@ using System.Text.Json;
 
 namespace Repository
 {
-   
-    public class UserRepository
+
+    public class UserRepository : IUserRepository
     {
         static string filePath = "M:\\נוסבכר\\WebApi - Copy\\Repository\\users.txt";
-       User u=new Enitity.User();
+        User u = new Enitity.User();
         public User Get(int id)
         {
-            
+
             using (StreamReader reader = System.IO.File.OpenText(filePath))
             {
                 string? currentUserInFile;
@@ -32,7 +32,7 @@ namespace Repository
             }
             return null;
         }
-        public User Post( User user)
+        public User Post(User user)
         {
             int numberOfUsers = System.IO.File.ReadLines(filePath).Count();
             user.id = numberOfUsers + 1;
@@ -42,7 +42,7 @@ namespace Repository
             return user;
         }
 
-        public User Post( LoginUser luser)
+        public User Post(LoginUser luser)
         {
             using (StreamReader reader = System.IO.File.OpenText(filePath))
             {

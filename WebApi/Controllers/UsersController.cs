@@ -15,7 +15,11 @@ namespace WebApi.Controllers
     public class UsersController : ControllerBase
     
     {
-        UserService service = new Service.UserService();
+        IUserService service;
+        public UsersController(IUserService service)
+        {
+            this.service = service;
+        }
         static string filePath = "users.txt";
 
         // GET: api/<UsersController>

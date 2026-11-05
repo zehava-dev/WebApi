@@ -7,15 +7,20 @@ using Repository;
 
 namespace Service
 {
-    public class UserService
+    public class UserService : IUserService
     {
-        UserRepository repository=new UserRepository();
+       IUserRepository repository;
+        public UserService(IUserRepository repository)
+        {
+            this.repository = repository;
+        }
+
         public User Get(int id)
         {
-           
-           return repository.Get(id);
+
+            return repository.Get(id);
         }
-        public User Post( User user)
+        public User Post(User user)
         {
             return repository.Post(user);
         }
@@ -25,7 +30,7 @@ namespace Service
         }
         public void Put(int id, User user)
         {
-            repository.Put(id,user);
+            repository.Put(id, user);
         }
 
     }
