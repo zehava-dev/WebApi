@@ -1,4 +1,48 @@
-﻿const title = document.querySelector(".title");
+﻿let num = 0
+const checkPassword = async () => {
+
+
+    const password = document.querySelector("#password").value
+
+    try {
+        const response = await fetch('api/Password', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(password)
+        });
+
+
+        if (response.ok) {
+            const res = await response.json();
+
+            const prog = document.querySelector("#prog")
+            prog.value = res
+            num = res;
+
+            if (res < 2) {
+                alert("your password is ")
+            }
+
+
+        }
+        else {
+            throw Error("error")
+        }
+
+
+    }
+
+    catch (e) {
+        alert(e.message)
+    }
+
+
+
+
+}
+const title = document.querySelector(".title");
 const updateDetails = document.querySelector(".updateDetails");
 const details = document.querySelector(".details");
 
@@ -47,6 +91,10 @@ const put = async () => {
         
 
     };
+    if (num < 2) {
+        alert("the passwors is low!")
+        return
+    }
     try {
         const response = await fetch(`api/Users/${id}`, {
             method: 'PUT',

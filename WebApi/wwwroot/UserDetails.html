@@ -19,10 +19,24 @@
        
     }
     h2 {
-        background-color:beige;
-        height: 10vh;
+        background-color: beige;
+        height: 20vh;
+        font-weight: 300;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    h1 {
+       color:teal;
        
-       
+        font-weight: 500;
+/*        display: flex;
+        flex-direction: column;
+        justify-content: center;*/
+    }
+    input {
+        height: 20px;
+        background-color:gainsboro
     }
 
     /*.conected {
@@ -39,28 +53,43 @@
     <h1>בואו נצלול פנימה...</h1>
 
     <!--<a href="UserDetails.html"  class="a">fghj</a>-->
-    <button class="updateDetails" onclick="writeTheUser()">לעדכון פר</button>
+    <button class="updateDetails" onclick="writeTheUser()">לעדכון פרטים</button>
 
     <div class="details" style="display:none">
         <label for="name">שם</label>
+        <br />
+
         <input type="text" id="name" />
         <br />
         <br />
 
         <label for="lastName">שם משפחה</label>
+        <br />
+
         <input type="text" id="lastName" />
         <br />
         <br />
 
 
         <label for="email">מייל</label>
+        <br />
+
         <input type="email" id="email" />
         <br />
         <br />
 
 
         <label for="password">סיסמא</label>
+        <br />
+
         <input type="password" id="password" />
+        <br />
+        <br />
+        <progress id="prog" value="0" max="4"></progress>
+        <br />
+        <br />
+
+        <button onclick="checkPassword()">בדיקת חוזק סיסמה</button>
         <br />
         <br />
 
