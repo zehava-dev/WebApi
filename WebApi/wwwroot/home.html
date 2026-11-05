@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <title></title>
     <script src="java.js" defer></script>
+  
 </head>
 <style>
     body {
@@ -41,6 +42,8 @@
 
         <label for="password">סיסמא</label>
         <input type="password" id="password" />
+        <progress id="prog" value="0" max="4"></progress>
+        <button onclick="checkPassword()">בדיקת חוזק סיסמה</button>
 
         <button onclick="postData()">set</button>
     </div>
