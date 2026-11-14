@@ -2,6 +2,7 @@
 using System.Text.Json;
 using Enitity;
 using Service;
+//The assignment asks the controller to use the service, not the repository: the API project references Services, and Services references Repositories
 using Repository;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -67,6 +68,7 @@ namespace WebApi.Controllers
 
         // PUT api/<UsersController>/5
         [HttpPut("{id}")]
+        //The assignment asks PUT to return Ok(): change void to IActionResult and return Ok() at the end
         public void Put(int id ,[FromBody] User userToUpdate)
         {
             service.Put(id, userToUpdate);  
