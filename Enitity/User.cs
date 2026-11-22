@@ -9,6 +9,7 @@ namespace Enitity
     {
 
         [Required]
+        //In C#, properties are written in PascalCase: Name. users.txt stores the current names: if you rename them, set PropertyNameCaseInsensitive = true in the JsonSerializerOptions, so the existing file still loads
         public string name { get; set; }
         [Required]
         public string lastName { get; set; }

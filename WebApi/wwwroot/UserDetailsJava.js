@@ -46,6 +46,7 @@ const title = document.querySelector(".title");
 const updateDetails = document.querySelector(".updateDetails");
 const details = document.querySelector(".details");
 
+//In JavaScript, names are written in camelCase: user
 const User = sessionStorage.getItem("currentUser");
 const nameUser1 = JSON.parse(User).name;
 const lastName1 = JSON.parse(User).lastName;
